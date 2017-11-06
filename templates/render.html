@@ -1,0 +1,17 @@
+<html>
+<head>
+<title>Going full screen</title>
+ <script language="JavaScript">
+   function getLatest() {
+	document.getElementById("goFull").innerHTML = "<img src='http://10.36.56.27:5000/"+(new Date().getTime())+"'/ onclick='getLatest()'>"
+	
+    }
+    </script>
+</head>
+
+<body>
+<div id="goFull">
+<button type="button" onclick="getLatest()">Refresh</button>
+</div>
+</body>
+</html>
