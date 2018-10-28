@@ -39,14 +39,14 @@ def getImage():
    if False:
      im = im.rotate(90, expand=True)
      if False:
-       im = im.crop(box=[660, 40, 3000, 2400])
+       im = im.crop(box=[1, 40, 1800, 1300])
      else:
-       im = im.crop(box=[100, 600, 1100, 1800])
+       im = im.crop(box=[100, 550, 1100, 1800])
    else:
      if True:
-         im = im.crop(box=[1367, 120, 3000, 2000])
+         im = im.crop(box=[1375, 50, 3000, 2000])
      else:
-         im = im.crop(box=[1630, 0, 3000, 2000])
+         im = im.crop(box=[1570, 10, 3000, 2000])
    im.save(f, format='png')
    f.seek(0,0)
    #im.save("/home/aknirala/Pictures/screenshot"+time.ctime()+".jpg", "JPEG")
