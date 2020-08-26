@@ -38,15 +38,24 @@ def getImage():
    f = NamedTemporaryFile(delete=False)
    if False:
      im = im.rotate(90, expand=True)
-     if False:
-       im = im.crop(box=[1, 40, 1800, 1300])
-     else:
-       im = im.crop(box=[100, 550, 1100, 1800])
-   else:
      if True:
-         im = im.crop(box=[1375, 50, 3000, 2000])
+       x = 1
+       y = 60
+       im = im.crop(box=[x, y, x+1800, y+1300])
      else:
-         im = im.crop(box=[1570, 10, 3000, 2000])
+       x = 100
+       y = 350
+       im = im.crop(box=[x, y, x+1800, y+1350])
+   else:
+     x = 280
+     y = 80
+     if False:
+         x = 1375
+         y = 50
+         im = im.crop(box=[x, y, x+1800, y+1300])
+     else:
+         im = im.crop(box=[x, y, x+1630, y+1010])
+         im = im.rotate(270, expand=True)
    im.save(f, format='png')
    f.seek(0,0)
    #im.save("/home/aknirala/Pictures/screenshot"+time.ctime()+".jpg", "JPEG")
@@ -60,7 +69,7 @@ if __name__ == "__main__":
     s.close()
     os.system("cp templates/render_Tmp.html templates/render.html")
     sedCommand = "sed -i \"s/PLACEHOLDER_01/"+ipAddr+"/g\" \"templates/render.html\""
-    print(sedCommand)
+    print(sedCommand, ipAddr)
     os.system(sedCommand)
     app.run(host=ipAddr, debug=True)
     #app.run(host='10.26.48.80', debug=True)
