@@ -1,0 +1,16 @@
+carla==0.9.10
+certifi==2020.12.5
+click==7.1.2
+distro==1.5.0
+EasyProcess==0.3
+entrypoint2==0.2.3
+Flask==1.1.2
+itsdangerous==1.1.0
+jeepney==0.6.0
+Jinja2==2.11.2
+MarkupSafe==1.1.1
+mss==6.1.0
+numpy==1.19.5
+Pillow==8.1.0
+pyscreenshot==2.3
+Werkzeug==1.0.1
