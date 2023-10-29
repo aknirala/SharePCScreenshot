@@ -34,28 +34,37 @@ def go_to(param):
 
 @app.route('/getImage', methods=['GET'])
 def getImage():
-   im=ImageGrab.grab()
+   im = ImageGrab.grab()
+   threshold = -1#160  # Adjust this threshold value as needed
+   #Theshold
+   if threshold >= 0:
+       im = im.convert('L')
+       im = im.point(lambda p: p > threshold and 255)
    f = NamedTemporaryFile(delete=False)
-   if False:
-     im = im.rotate(90, expand=True)
+   if True:
      if True:
-       x = 1
+       x = 0
        y = 60
-       im = im.crop(box=[x, y, x+1800, y+1300])
+       im = im.crop(box=[x, y, x+1180, y+1580])
      else:
-       x = 100
-       y = 350
-       im = im.crop(box=[x, y, x+1800, y+1350])
+	#In library when side moniter is on
+       x = 1942#1772#222#1942
+       y = 120
+       im = im.crop(box=[x, y, x+1180, y+1580])
    else:
-     x = 280
-     y = 80
      if False:
-         x = 1375
-         y = 50
-         im = im.crop(box=[x, y, x+1800, y+1300])
+         #In Lib; when top cneter monitor
+         x = 250
+         y = 0
+         #im = im.crop(box=[x, y, x+1400, y+1050])
+         im = im.crop(box=[x, y, x+1400, y+1100])
      else:
-         im = im.crop(box=[x, y, x+1630, y+1010])
-         im = im.rotate(270, expand=True)
+         x = 250#1800
+         #x = 1370
+         y = 50
+         #im = im.crop(box=[x, y, x+1400, y+1050])
+         im = im.crop(box=[x, y, x+1600, y+1150])
+     im = im.rotate(270, expand=True)
    im.save(f, format='png')
    f.seek(0,0)
    #im.save("/home/aknirala/Pictures/screenshot"+time.ctime()+".jpg", "JPEG")
